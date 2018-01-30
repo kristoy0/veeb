@@ -15,3 +15,6 @@ $eesNimi = 'Kristo'; // eesnimi, string
 $pereNimi = 'R'; // perenimi, string
 $bussiNumber = 4; //bussinumber, integer
 $soiduKestvus = 0.5; // sõidu kestus, float
+
+// Konstandi defineerimine
+define('NUMBER_PI', 3.1415); //pi konstant
