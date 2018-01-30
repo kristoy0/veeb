@@ -8,7 +8,7 @@
 
 // Teksti väljastamine
 echo 'Aine - veebiprogrammeerimine'.'<br />';
-print 'valikaine';
+print 'valikaine'.'<br />';
 
 // Muutujate defineerimine
 $eesNimi = 'Kristo'; // eesnimi, string
@@ -18,3 +18,9 @@ $soiduKestvus = 0.5; // sõidu kestus, float
 
 // Konstandi defineerimine
 define('NUMBER_PI', 3.1415); //pi konstant
+
+//Kasutades eelnevalt defineeritud muutujaid ja konstante
+//väljastame teksti
+echo 'Olen '.$eesNimi.' '.$pereNimi.' ning sõidan bussiga nr '.$bussiNumber;
+echo ', linna jõuan '.$soiduKestvus.' tunniga'.'<br />';
+echo 'Pi väärtus on '.NUMBER_PI.'<br />';
