@@ -19,8 +19,19 @@ $soiduKestvus = 0.5; // sõidu kestus, float
 // Konstandi defineerimine
 define('NUMBER_PI', 3.1415); //pi konstant
 
-//Kasutades eelnevalt defineeritud muutujaid ja konstante
-//väljastame teksti
+// Kasutades eelnevalt defineeritud muutujaid ja konstante
+// väljastame teksti
 echo 'Olen '.$eesNimi.' '.$pereNimi.' ning sõidan bussiga nr '.$bussiNumber;
 echo ', linna jõuan '.$soiduKestvus.' tunniga'.'<br />';
 echo 'Pi väärtus on '.NUMBER_PI.'<br />';
+
+// Tingimuslaused
+$ilmValjas = 'lund sajab';
+
+// Kui lund sajab siis tuleb minna sauna
+if($ilmValjas == 'lund sajab') {
+    echo 'Tuleb minna sauna';
+// Kui lund ei saja siis pole mõtet sauna minna
+} else {
+    echo 'Pole mõtet sauna minna';
+}
