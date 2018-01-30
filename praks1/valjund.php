@@ -30,8 +30,13 @@ $ilmValjas = 'lund sajab';
 
 // Kui lund sajab siis tuleb minna sauna
 if($ilmValjas == 'lund sajab') {
-    echo 'Tuleb minna sauna';
+    echo 'Tuleb minna sauna'.'<br />';;
 // Kui lund ei saja siis pole mõtet sauna minna
 } else {
-    echo 'Pole mõtet sauna minna';
+    echo 'Pole mõtet sauna minna'.'<br />';
 }
+// Väärtuse overloadimine teise tulemuse saavutamiseks
+$ilmValjas = 'lund ei saja'.'<br />';
+
+// Kui lund sajab siis tuleb minna sauna, kui mitte siis pole mõtet sauna minna
+echo ($ilmValjas == 'lund sajab' ? 'Tuleb minna sauna' : 'Pole mõtet sauna minna'.'<br />');
