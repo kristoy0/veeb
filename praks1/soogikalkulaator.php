@@ -5,32 +5,7 @@
  * Date: 30.01.2018
  * Time: 11:28
  */
-
-// funktisoon soodustuse arvutamiseks
-/**
- * @param $taisHind
- * @param $soodusKaart
- * @param $kasOledOpilane
- */
-function soogiHind ($taisHind, $soodusKaart = false, $kasOledOpilane = false) {
-    // funktsiooni sisu
-    $toetus = 1.80; // õpilase toetus eurodes
-    $soodustusProtsent = 15; // soodustusprotsent
-    $soodusHind = $taisHind;
-
-    if ($soodusKaart) {
-        $soodusHind = $taisHind - ($taisHind * ($soodustusProtsent / 100));
-    }
-    if ($kasOledOpilane) {
-        $soodusHind -= $toetus;
-    }
-    if ($soodusHind < 0) {
-        return 0;
-    }
-    return $soodusHind;
-} // funktsiooni lõpp
-
-// eelnevalt defineeritud funktsiooni kutsumine
+require_once 'funktsioonid.php'; // ligipääs funktsioonid.php failile
 
 // testimiseks paneme erinevad väärtused paika
 // ning kasutame selleks massiivi
@@ -87,6 +62,7 @@ foreach ($soogid as $sook) {
     echo 'Söögi nimetus: '.$sook['nimetus'].'<br \>';
     echo 'Söögi kirjeldus: '.$sook['kirjeldus'].'<br \>';
     foreach ($kasutajad as $kasutaja) {
+// eelnevalt defineeritud funktsiooni kutsumine
         echo $kasutaja['roll'].' hind : '.round(soogiHind($sook['hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br />';
     }
     echo '<br \>';
