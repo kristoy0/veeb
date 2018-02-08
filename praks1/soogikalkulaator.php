@@ -6,9 +6,6 @@
  * Time: 11:28
  */
 
-// Seadistame vajalikud muutujad
-$soogiHind = 2.65; // söögi hind eurodes
-
 // funktisoon soodustuse arvutamiseks
 /**
  * @param $taisHind
@@ -27,6 +24,9 @@ function soogiHind ($taisHind, $soodusKaart = false, $kasOledOpilane = false) {
     if ($kasOledOpilane) {
         $soodusHind -= $toetus;
     }
+    if ($soodusHind < 0) {
+        return 0;
+    }
     return $soodusHind;
 } // funktsiooni lõpp
 
@@ -39,7 +39,7 @@ function soogiHind ($taisHind, $soodusKaart = false, $kasOledOpilane = false) {
 // Kasutajad on tabel
 $kasutajad = array(
     array(
-        'roll' => 'Õpilane',
+        'roll' => 'Õpilase',
         'soodus' => true,
         'opilaskaart' => true
     ),
@@ -55,6 +55,40 @@ $kasutajad = array(
     )
 );
 
-foreach ($kasutajad as $kasutaja) {
-    echo $kasutaja['roll'].' hind : '.round(soogiHind($soogiHind, $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br />';
+$soogid = array(
+    array(
+        'nimetus' => 'Šnitsel',
+        'kirjeldus' => 'Šnitsel sealihast, lisand, kaste, salat, leib',
+        'hind' => 2.68
+    ),
+    array(
+        'nimetus' => 'Seapraad',
+        'kirjeldus' => 'Seapraad, lisand, kaste, salat, leib',
+        'hind' => 2.65
+    ),
+    array(
+        'nimetus' => 'Hakklihapallid tomatikastmes',
+        'kirjeldus' => 'Hakklihapall 2 tk, lisand, kaste, salat, leib',
+        'hind' => 2.30
+    ),
+    array(
+        'nimetus' => 'Hakklihapallid tomatikastmes 1/2',
+        'kirjeldus' => 'Hakklihapall, lisand, kaste, salat, leib',
+        'hind' => 1.30
+    ),
+    array(
+        'nimetus' => 'Kartul kastmega',
+        'kirjeldus' => 'Kartul, kaste, salat, leib',
+        'hind' => 1.28
+    )
+);
+
+foreach ($soogid as $sook) {
+    echo 'Söögi nimetus: '.$sook['nimetus'].'<br \>';
+    echo 'Söögi kirjeldus: '.$sook['kirjeldus'].'<br \>';
+    foreach ($kasutajad as $kasutaja) {
+        echo $kasutaja['roll'].' hind : '.round(soogiHind($sook['hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br />';
+    }
+    echo '<br \>';
 }
+
