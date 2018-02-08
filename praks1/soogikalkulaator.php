@@ -59,12 +59,12 @@ $soogid = array(
 );
 
 foreach ($soogid as $sook) {
-    echo 'Söögi nimetus: '.$sook['nimetus'].'<br \>';
-    echo 'Söögi kirjeldus: '.$sook['kirjeldus'].'<br \>';
+    echo 'Söögi nimetus: '.$sook['nimetus'].'<br>';
+    echo 'Söögi kirjeldus: '.$sook['kirjeldus'].'<br>';
     foreach ($kasutajad as $kasutaja) {
 // eelnevalt defineeritud funktsiooni kutsumine
-        echo $kasutaja['roll'].' hind : '.round(soogiHind($sook['hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br />';
+        echo $kasutaja['roll'].' hind : '.round(soogiHind($sook['hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br>';
     }
-    echo '<br \>';
+    echo '<br>';
 }
 
