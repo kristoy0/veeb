@@ -36,20 +36,13 @@ function soogiHind ($taisHind, $soodusKaart = false, $kasOledOpilane = false) {
 // ning kasutame selleks massiivi
 // kujul (soodusKaart, kasOledOpilane)
 
-// kui oled õpilane ning sul on sooduskaart
-$opilane = array(true, true);
+// Kasutajad on tabel
+$kasutajad = array(
+    array(true, true), // õpilane
+    array(true, false), // õpetaja
+    array(false, false) // külastaja
+);
 
-// kui oled õpetaja ning sul on sooduskaart
-$opetaja = array(true, false);
-
-// kui oled külastaja ilma sooduskaardita
-$kulastaja = array(false, false);
-
-// kui oled õpilane ning sul on sooduskaart
-echo 'Hind õpilasele: '.round(soogiHind($soogiHind, $opilane[0], $opilane[1]), 2).' € <br />';
-
-// kui oled õpetaja ning sul on sooduskaart
-echo 'Hind opetajale: '.round(soogiHind($soogiHind, $opetaja[0], $opetaja[1]),2).' € <br />';
-
-// kui oled külastaja ilma sooduskaardita
-echo 'Hind külastajale: '.round(soogiHind($soogiHind, $kulastaja[0], $kulastaja[1]), 2).' € <br />';
+for($i = 0; $i < count($kasutajad); $i++) {
+    echo 'Hind : '.round(soogiHind($soogiHind, $kasutajad[$i][0], $kasutajad[$i][1]), 2).' € <br />';
+}
