@@ -38,11 +38,23 @@ function soogiHind ($taisHind, $soodusKaart = false, $kasOledOpilane = false) {
 
 // Kasutajad on tabel
 $kasutajad = array(
-    array(true, true), // õpilane
-    array(true, false), // õpetaja
-    array(false, false) // külastaja
+    array(
+        'roll' => 'Õpilane',
+        'soodus' => true,
+        'opilaskaart' => true
+    ),
+    array(
+        'roll' => 'Õpetaja',
+        'soodus' => true,
+        'opilaskaart' => false
+    ),
+    array(
+        'roll' => 'Külastaja',
+        'soodus' => false,
+        'opilaskaart' => false
+    )
 );
 
-for($i = 0; $i < count($kasutajad); $i++) {
-    echo 'Hind : '.round(soogiHind($soogiHind, $kasutajad[$i][0], $kasutajad[$i][1]), 2).' € <br />';
+foreach ($kasutajad as $kasutaja) {
+    echo $kasutaja['roll'].' hind : '.round(soogiHind($soogiHind, $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br />';
 }
