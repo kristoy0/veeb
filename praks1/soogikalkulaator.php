@@ -15,7 +15,7 @@ $soogiHind = 2.65; // söögi hind eurodes
  * @param $soodusKaart
  * @param $kasOledOpilane
  */
-function soogiHind ($taisHind, $soodusKaart, $kasOledOpilane) {
+function soogiHind ($taisHind, $soodusKaart = false, $kasOledOpilane = false) {
     // funktsiooni sisu
     $toetus = 1.80; // õpilase toetus eurodes
     $soodustusProtsent = 15; // soodustusprotsent
@@ -36,7 +36,7 @@ function soogiHind ($taisHind, $soodusKaart, $kasOledOpilane) {
 echo 'Hind õpilasele: '.round(soogiHind($soogiHind, true, true), 2).' € <br />';
 
 // kui oled õpetaja ning sul on sooduskaart
-echo 'Hind opetajale: '.round(soogiHind($soogiHind, true, false),2).' € <br />';
+echo 'Hind opetajale: '.round(soogiHind($soogiHind, true),2).' € <br />';
 
 // kui oled külastaja ilma sooduskaardita
-echo 'Hind külastajale: '.round(soogiHind($soogiHind, false, false), 2).' € <br />';
+echo 'Hind külastajale: '.round(soogiHind($soogiHind), 2).' € <br />';
