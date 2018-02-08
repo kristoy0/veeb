@@ -7,7 +7,7 @@
  */
 
 // Seadistame vajalikud muutujad
-$soogiHind = 2.55; // söögi hind eurodes
+$soogiHind = 2.65; // söögi hind eurodes
 
 // funktisoon soodustuse arvutamiseks
 /**
@@ -29,3 +29,14 @@ function soogiHind ($taisHind, $soodusKaart, $kasOledOpilane) {
     }
     return $soodusHind;
 } // funktsiooni lõpp
+
+// eelnevalt defineeritud funktsiooni kutsumine
+
+// kui oled õpilane ning sul on sooduskaart
+echo 'Hind õpilasele: '.round(soogiHind($soogiHind, true, true), 2).' € <br />';
+
+// kui oled õpetaja ning sul on sooduskaart
+echo 'Hind opetajale: '.round(soogiHind($soogiHind, true, false),2).' € <br />';
+
+// kui oled külastaja ilma sooduskaardita
+echo 'Hind külastajale: '.round(soogiHind($soogiHind, false, false), 2).' € <br />';
