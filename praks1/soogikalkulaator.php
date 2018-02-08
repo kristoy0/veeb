@@ -7,6 +7,9 @@
  */
 require_once 'funktsioonid.php'; // ligipääs funktsioonid.php failile
 
+// väljastame html vormi
+loeVormFailist('vorm.html');
+
 // testimiseks paneme erinevad väärtused paika
 // ning kasutame selleks massiivi
 // kujul (soodusKaart, kasOledOpilane)
@@ -59,8 +62,8 @@ $soogid = array(
 );
 
 foreach ($soogid as $sook) {
-    echo 'Söögi nimetus: '.$sook['nimetus'].'<br>';
-    echo 'Söögi kirjeldus: '.$sook['kirjeldus'].'<br>';
+    echo '<h3>Söögi nimetus: '.$sook['nimetus'].'</h3>';
+    echo '<pre>'.$sook['kirjeldus'].'</pre><br>';
     foreach ($kasutajad as $kasutaja) {
 // eelnevalt defineeritud funktsiooni kutsumine
         echo $kasutaja['roll'].' hind : '.round(soogiHind($sook['hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br>';
