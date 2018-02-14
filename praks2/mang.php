@@ -6,10 +6,10 @@
  * Time: 12:31
  */
 
-require_once 'funktsioonid.php'; // ligipääs funktsioonid.php failile
+require_once '../praks1/funktsioonid.php'; // ligipääs funktsioonid.php failile
 
 $suvalineNumber = 10;
-$pakutudNumber = $_GET['number'];
+$pakutudNumber = $_POST['number'];
 
 loeVormFailist('manguvorm.html');
 
