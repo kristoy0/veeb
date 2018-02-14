@@ -61,12 +61,19 @@ $soogid = array(
     )
 );
 
+// kui roll pole veel vormis määratud, tuleks näidata
+// külalise hindu
 foreach ($soogid as $sook) {
     echo '<h3>Söögi nimetus: '.$sook['nimetus'].'</h3>';
     echo '<pre>'.$sook['kirjeldus'].'</pre><br>';
     foreach ($kasutajad as $kasutaja) {
 // eelnevalt defineeritud funktsiooni kutsumine
-        echo $kasutaja['roll'].' hind : '.round(soogiHind($sook['hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br>';
+        if (empty($_GET)) {
+            $_GET['roll'] = 'Külastaja';
+        }
+        if ($_GET['roll'] == $kasutaja['roll']) {
+            echo $kasutaja['roll'].' hind : '.round(soogiHind($sook['hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']), 2).' € <br>';
+        }
     }
     echo '<br>';
 }
