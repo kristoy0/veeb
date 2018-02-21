@@ -1,9 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kristo.rood
- * Date: 14.02.2018
- * Time: 12:31
+/*
+ * WARNING: The code that follows may make you cry:
+ *           A Safety Pig has been provided below for your benefit
+ *                              _
+ *      _._ _..._ .-',     _.._(`))
+ *     '-. `     '  /-._.-'    ',/
+ *       )         \            '.
+ *      / _    _    |             \
+ *     |  a    a    /              |
+ *      \   .-.                     ;
+ *       '-('' ).-'       ,'       ;
+ *          '-;           |      .'
+ *            \           \    /
+ *            | 7  .__  _.-\   \
+ *            | |  |  ``/  /`  /
+ *           /,_|  |   /,_/   /
+ *              /,_/      '`-'
  */
 
 require_once '../praks1/funktsioonid.php'; // ligipääs funktsioonid.php failile
