@@ -20,20 +20,25 @@
 
 require_once '../praks1/funktsioonid.php'; // ligipääs funktsioonid.php failile
 
-$suvalineNumber = $_POST['suvalineNumber'];
-$suvalineNumber = isset($suvalineNumber) ? $suvalineNumber : rand(1, 50);
+session_start();
+
+
+if(!isset($_SESSION['suvalineNumber']) and !isset($_SESSION['katseteArv'])){
+    $_SESSION['suvalineNumber'] = rand(1, 50);
+    $_SESSION['katseteArv'] = 0;
+} else {
+    $suvalineNumber = $_SESSION['suvalineNumber'];
+    $katseteArv = ++$_SESSION['katseteArv'];
+}
 
 $pakutudNumber = $_POST['number'];
 
-$katseteArv = $_POST['katseteArv'];
-$katseteArv = isset($katseteArv) ? ++$katseteArv : 0;
+echo '<pre>'.print_r($_SESSION).'</pre>';
 
 echo '<form action="mang.php" method="post">
     Sisesta number 1 - 50:<br>
     <input type="number" max="50" min="1" name="number" value="">
-    <input type="hidden" name="katseteArv" value="'.$katseteArv.'">
-    <input type="hidden" name="suvalineNumber" value="'.$suvalineNumber.'">
-    <input type="submit" value="Arva">
+    <input type="submit" name="submit" value="Arva">
 </form>';
 
 if (!empty($pakutudNumber)) {
@@ -41,6 +46,7 @@ if (!empty($pakutudNumber)) {
         case $suvalineNumber:
             echo 'Pakkusid õige numbri <br>';
             echo 'Sul läks arvamiseks '.$katseteArv.' katset';
+            unset($_SESSION['katseteArv']);
             break;
         case ($pakutudNumber >= $suvalineNumber - 5 and $pakutudNumber < $suvalineNumber):
             echo 'Pakkusid lähedale (>= -5)';
